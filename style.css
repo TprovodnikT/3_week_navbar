@@ -1,0 +1,241 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+.logo_text {
+  font-weight: 900;
+  font-size: 1.3rem;
+  align-self: center;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out 0.3s, font-size 0.3s ease-in-out;
+}
+
+.nav_menu_item {
+  font-weight: 900;
+  font-size: 1rem;
+}
+
+.nav-bar {
+  width: 100%;
+  height: 5rem;
+  border: solid 3px red;
+  padding: 1rem 5%;
+  display: flex;
+}
+
+.logo_img {
+  background-image: url(./img/logo.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 3rem;
+  width: 3rem;
+  align-self: center;
+}
+
+.basket_img {
+  width: 2rem;
+  align-self: center;
+}
+
+.avatar_img {
+  width: 2rem;
+  align-self: center;
+}
+
+.nav-bar,
+.nav_menu {
+  display: flex;
+  flex-direction: row;
+}
+
+.nav_menu {
+  position: absolute;
+  right: 25%;
+  top: 2rem;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.nav_menu_item {
+  cursor: pointer;
+  display: flex;
+  align-self: center;
+  transition: opacity 0.3s ease-in-out 0.3s, font-size 0.3s ease-in-out;
+}
+
+.nav_burger_container {
+  width: 0%;
+}
+
+.logo {
+  display: flex;
+}
+
+.logo_img {
+  margin-right: 1rem;
+}
+
+.basket_avatar_container {
+  position: absolute;
+  right: 5%;
+  align-self: center;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.basket {
+  width: 2rem;
+  position: relative;
+  margin-right: 1rem;
+}
+
+.avatar {
+  display: flex;
+  align-self: center;
+  transition: opacity 0.25s ease-in-out 0.25s, font-size 0.25s ease-in-out;
+}
+
+@media only screen and (max-width: 900px) {
+  .logo_text {
+    transition: opacity 0.3s ease-in-out, font-size 0.3s ease-in-out 0.3s;
+    font-size: 0;
+    transform: scaleX(0);
+    opacity: 0;
+  }
+}
+@media only screen and (max-width: 650px) {
+  .avatar,
+.nav_menu_item {
+    align-self: flex-start;
+    transition: opacity 0.3s ease-in-out, font-size 0.3s ease-in-out 0.3s;
+    font-size: 0;
+    opacity: 0;
+  }
+
+  .nav_menu {
+    position: absolute;
+    top: 6rem;
+    left: 5%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .avatar {
+    width: 0%;
+  }
+
+  .nav_menu_item .nav_checkmark {
+    display: none;
+  }
+
+  .nav_burger_container {
+    align-self: center;
+    height: 2rem;
+    width: 2rem;
+  }
+
+  .nav_burger {
+    position: relative;
+    width: 2rem;
+    margin-top: 1rem;
+    height: 0.25rem;
+    background-color: #333;
+    transition: 0.4s;
+    border-radius: 0.25rem;
+    transition: all 0.5s ease-in-out;
+  }
+  .nav_burger::before {
+    position: relative;
+    width: 2rem;
+    margin-top: 1rem;
+    height: 0.25rem;
+    background-color: #333;
+    transition: 0.4s;
+    border-radius: 0.25rem;
+    transition: all 0.5s ease-in-out;
+    content: "";
+    position: absolute;
+    margin-top: -0.5rem;
+  }
+  .nav_burger::after {
+    position: relative;
+    width: 2rem;
+    margin-top: 1rem;
+    height: 0.25rem;
+    background-color: #333;
+    transition: 0.4s;
+    border-radius: 0.25rem;
+    transition: all 0.5s ease-in-out;
+    content: "";
+    position: absolute;
+    margin-top: 0.5rem;
+  }
+
+  .nav_burger_container.open .nav_burger {
+    transform: translateX(-3rem);
+    background: transparent;
+  }
+
+  .nav_burger_container.open .nav_burger::before {
+    transform: rotate(45deg) translate(2.7rem, -2rem);
+  }
+
+  .nav_burger_container.open .nav_burger::after {
+    transform: rotate(-45deg) translate(2.7rem, 2rem);
+  }
+}
+.avatar_checkmark_container {
+  height: 1rem;
+  width: 1rem;
+  display: flex;
+}
+
+.nav_checkmark {
+  margin-top: -0.25rem;
+  width: 1rem;
+  transform: rotate(45deg);
+  display: inline-block;
+}
+
+.nav_checkmark:before {
+  content: "";
+  position: absolute;
+  width: 3px;
+  height: 9px;
+  background-color: black;
+  left: 11px;
+  top: 6px;
+}
+
+.nav_checkmark:after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 3px;
+  background-color: black;
+  left: 6px;
+  top: 12px;
+}
+
+.blureItem {
+  filter: blur(2px);
+  transition: filter 0.4s ease-in-out;
+}
+
+.unhide_menu {
+  font-size: 1rem;
+  opacity: 1;
+  align-self: flex-start;
+  width: 100%;
+  transition: opacity 0.3s ease-in-out 0.3s, font-size 0.3s ease-in-out;
+}
+
+/*# sourceMappingURL=style.css.map */
