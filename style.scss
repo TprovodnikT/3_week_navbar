@@ -37,6 +37,10 @@ body {
     width: 3rem;
     align-self: center;
 }
+.avatar_burger_container {
+    width: 2rem;
+    display: flex;
+}
 .basket_img {
     width: 2rem;
     align-self: center;
@@ -64,6 +68,7 @@ body {
     transition: opacity 0.3s ease-in-out 0.3s, font-size 0.3s ease-in-out;
 }
 .nav_burger_container {
+    opacity: 0;
     width: 0%;
 }
 .logo {
@@ -99,32 +104,32 @@ body {
 }
 
 @media only screen and (max-width: 650px) {
-    .avatar,
-    .nav_menu_item {
-        align-self: flex-start;
+    .avatar {
+        width: 0%;
+    }
+    @mixin hideMenuBasics {
         transition: opacity 0.3s ease-in-out, font-size 0.3s ease-in-out 0.3s;
         font-size: 0;
         opacity: 0;
     }
-    .nav_menu {
-        position: absolute;
-        top: 6rem;
-        left: 5%;
-        width: 100%;
-        display: flex;
-        flex-direction:column;
-        // transition: opacity 0.3s ease-in-out 0.3s, font-size 0.3s ease-in-out;    
+    .nav_menu_item {
+        align-self: flex-start;
+        @include hideMenuBasics;
+    }
+    .nav_checkmark {
+        opacity: 0;
+        transition: opacity 0.1s linear 0.3s;
     }
     .avatar {
-        width: 0%;
-    }
-    .nav_menu_item .nav_checkmark {
-        display: none;
+        width: 0;
+        @include hideMenuBasics;
     }
     .nav_burger_container {
+        opacity: 1;
         align-self: center;
         height: 2rem;
         width: 2rem;
+        transition: all 0.3s ease-in-out 0.3s;
     }
     @mixin nav-burger() {
         position: relative;
@@ -134,7 +139,6 @@ body {
         background-color: #333;
         transition: 0.4s;
         border-radius: 0.25rem;
-        transition: all 0.5s ease-in-out;
     }
     .nav_burger {
         @include nav-burger();
@@ -161,16 +165,12 @@ body {
     .nav_burger_container.open .nav_burger::after {
         transform: rotate(-45deg) translate(2.7rem, 2rem);
     }
-    .nav_menu {
-        // flex-direction: column;
-        // transition: flex-direction 0.5s linear 0.2s;
-    }
 }
 
 // triangle that shows there are more menu items
 .avatar_checkmark_container {
     height: 1rem;
-    width:1rem;
+    width: 1rem;
     display: flex;
 }
 .nav_checkmark {
@@ -215,3 +215,11 @@ body {
     transition: opacity 0.3s ease-in-out 0.3s, font-size 0.3s ease-in-out;
 }
 
+.change_nav_bar_location {
+    position: absolute;
+    top: 6rem;
+    left: 5%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
